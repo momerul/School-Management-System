@@ -1,0 +1,68 @@
+﻿@model IEnumerable<BanglaMvc.Models.StudentDetails>
+
+<br />
+@using (Html.BeginForm("AllStudent", "Home", FormMethod.Get))
+{
+    <p>Enter Name: @Html.TextBox("Search")<input type="submit" value="Search" class="btn btn-group-xs" /></p>
+}
+<br />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Roll)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mid_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mid_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Final)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+        <tr>
+            <td colspan="3" style="color:red">
+                Data Not Found
+            </td>
+        </tr>
+        }
+    </tbody>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Roll)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mid_1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mid_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Final)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+        </tr>
+    }
+
+</table>
